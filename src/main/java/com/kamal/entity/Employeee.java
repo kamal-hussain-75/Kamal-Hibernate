@@ -9,9 +9,8 @@ public class Employeee {
 		super();
 	}
 	
-	public Employeee(int id, String name, String gender, int salary) {
-		super();
-		this.id=id;
+	public Employeee( String name, String gender, int salary) {
+		
 		this.name=name;
 		this.gender=gender;
 		this.salary=salary;
