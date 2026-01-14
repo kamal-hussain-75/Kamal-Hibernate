@@ -14,7 +14,7 @@
      <property name="hibernate.connection.password">Kamal@2603</property>
      <property name="hbm2ddl.auto">update</property>
      <property name="show_sql">true</property>
-     <mapping resource="employeee.hbm.xml"/>
+     <mapping class="com.kamal.entity.Employeee"/>
       
      
   
