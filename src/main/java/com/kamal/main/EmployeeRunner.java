@@ -8,6 +8,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
+import com.kamal.cfg.empConfiguration;
 import com.kamal.entity.Employeee;
 
 public class EmployeeRunner {
@@ -16,21 +18,9 @@ public class EmployeeRunner {
 		
 		Employeee emp=new Employeee("sumit", "male", 6000);
 		
-//		Configuration cfg=new Configuration().configure("hibernate.cfg.xml");
-//		SessionFactory sessionFactory=cfg.buildSessionFactory();
-//		Session session=sessionFactory.openSession();
-		
-//		StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-//		Metadata metadata= new MetadataSources(ssr).getMetadataBuilder().build();
-//		SessionFactory sessionFactory=metadata.buildSessionFactory();
-		
-		SessionFactory sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder()
-				.configure("hibernate.cfg.xml").build()).getMetadataBuilder().build()
-				.buildSessionFactory();
-		
-		Session session=sessionFactory.openSession();
-		
-		Transaction tx = session.beginTransaction();
+//		
+		Session session=empConfiguration.getSessionFactory().openSession();
+		Transaction tx=session.beginTransaction();
 		
 		session.persist(emp);
 		tx.commit();
