@@ -17,7 +17,9 @@ public class empConfiguration {
 		Properties properties = new Properties();
 
 		properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+		
 		properties.put(Environment.JAKARTA_JDBC_URL, "jdbc:mysql://localhost:3306/hibernate");
+		
 		properties.put(Environment.JAKARTA_JDBC_USER, "root");
 		properties.put(Environment.JAKARTA_JDBC_PASSWORD, "Kamal@2603");
 		properties.put(Environment.HBM2DDL_AUTO, "update");
@@ -25,8 +27,8 @@ public class empConfiguration {
 		properties.put(Environment.FORMAT_SQL, "true");
 
 //		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(properties).build();
-//		Metadata metaData = new MetadataSources(ssr).addAnnotatedClass(com.keshav.entity.Employee.class).getMetadataBuilder().build();
-//		SessionFactory sessionFactory = metaData.buildSessionFactory();
+//		  Metadata metaData = new MetadataSources(ssr).addAnnotatedClass(com.kamal.entity.Employee.class).getMetadataBuilder().build();
+//		    SessionFactory sessionFactory = metaData.buildSessionFactory();
 
 		return new MetadataSources(new StandardServiceRegistryBuilder().applySettings(properties).build())
 				.addAnnotatedClass(com.kamal.entity.Employeee.class).getMetadataBuilder().build().buildSessionFactory();
