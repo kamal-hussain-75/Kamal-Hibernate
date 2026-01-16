@@ -20,7 +20,7 @@ public class empConfiguration {
 		properties.put(Environment.JAKARTA_JDBC_URL, "jdbc:mysql://localhost:3306/hibernate");
 		properties.put(Environment.JAKARTA_JDBC_USER, "root");
 		properties.put(Environment.JAKARTA_JDBC_PASSWORD, "Kamal@2603");
-		properties.put(Environment.HBM2DDL_AUTO, "create");
+		properties.put(Environment.HBM2DDL_AUTO, "update");
 		properties.put(Environment.SHOW_SQL, "true");
 		properties.put(Environment.FORMAT_SQL, "true");
 
