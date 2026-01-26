@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity(name="emp_table")
 public class Employeee {
@@ -17,10 +19,14 @@ public class Employeee {
 	private String gender;
 	private int salary;
 	
+	@OneToOne(mappedBy="employeee")
+	@JoinColumn(name="add_id")
+	private Address address;
+	
 	public Employeee(){
 		super();
 	}
-	
+	 
 	
 	public Employeee( String name, String gender, int salary) {
 		
@@ -28,6 +34,14 @@ public class Employeee {
 		this.gender=gender;
 		this.salary=salary;
 		
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	
+	public void setAddress(Address address) {
+		this.address=address;
 	}
 	
 	public int getId() {

@@ -11,31 +11,50 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import com.kamal.cfg.empConfiguration;
+import com.kamal.entity.Address;
 import com.kamal.entity.Employeee;
 
 public class EmployeeRunner {
 
 	public static void main(String[] args)  {
 		
-		Employeee emp=new Employeee("sumit", "male", 6000);
+		Employeee emp=new Employeee();
+	     emp.setName("Hussain");
+	     emp.setGender("male");
+	     emp.setSalary(150560);
+	     
+	     Address add=new Address();
+	     add.setCity("NOIDA");
+	     add.setState("UP");
+	     
+	     emp.setAddress(add);
+	     add.setEmployeee(emp);
+	     
+		
+	
 		
 //		
 		Session session=empConfiguration.getSessionFactory().openSession();
 		Transaction tx=session.beginTransaction();
 //		
-		String hql="UPDATE emp_table SET salary =:s WHERE id=:id";
-		Query query=session.createQuery(hql);
-		query.setParameter("s", 55555);
-		query.setParameter("id", 1);
-		int rows=query.executeUpdate();
-		
-//		session.persist(emp);
-		tx.commit();
-		
-		System.out.println("Rows updated "+rows);
+//	     session.persist(emp);
+//	     session.persist(add);
+//		 tx.commit();
+		 
+		 Employeee ep=session.find(Employeee.class, 2);
+		 System.out.println(ep);
+		 System.out.println(ep.getAddress());
 		
 		
+		 Address ad=session.find(Address.class,2);
+		 System.out.println(ad);
+		 System.out.println(ad.getEmployeee());
+		 
+		 Employeee ep1=session.find(Employeee.class, 1);
+		 System.out.println(ep1);
+		 System.out.println(ep1.getAddress());
 		
+		  
 	}
 
 }

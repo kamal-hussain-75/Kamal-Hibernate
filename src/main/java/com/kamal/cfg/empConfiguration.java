@@ -29,7 +29,7 @@ public class empConfiguration {
 //		SessionFactory sessionFactory = metaData.buildSessionFactory();
 
 		return new MetadataSources(new StandardServiceRegistryBuilder().applySettings(properties).build())
-				.addAnnotatedClass(com.kamal.entity.Employeee.class).getMetadataBuilder().build().buildSessionFactory();
+				.addAnnotatedClasses(com.kamal.entity.Employeee.class,com.kamal.entity.Address.class).getMetadataBuilder().build().buildSessionFactory();
 
 	}
 
