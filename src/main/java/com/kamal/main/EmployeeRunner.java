@@ -1,5 +1,8 @@
 package com.kamal.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -23,38 +26,46 @@ public class EmployeeRunner {
 	     emp.setGender("male");
 	     emp.setSalary(150560);
 	     
-	     Address add=new Address();
-	     add.setCity("NOIDA");
-	     add.setState("UP");
+	     Address add1=new Address();
+	     add1.setCity("NOIDA");
+	     add1.setState("UP");
 	     
-	     emp.setAddress(add);
-	     add.setEmployeee(emp);
+	     Address add2=new Address();
+	     add2.setCity("GZB");
+	     add2.setState("UP");
 	     
+	     Address add3=new Address();
+	     add3.setCity("Lucknow");
+	     add3.setState("UP");
+	     
+	   
+	     
+	     ArrayList<Address> listOfAddress=new ArrayList<>();
+	     
+	     listOfAddress.add(add1);
+	     listOfAddress.add(add2);
+	     listOfAddress.add(add3);
 		
 	
+	     emp.setAddresses(listOfAddress);
 		
 //		
 		Session session=empConfiguration.getSessionFactory().openSession();
 		Transaction tx=session.beginTransaction();
 //		
-//	     session.persist(emp);
-//	     session.persist(add);
-//		 tx.commit();
+	     session.persist(emp);
+	     session.persist(add1);
+	     session.persist(add2);
+	     session.persist(add3);
+     	 tx.commit();
 		 
-		 Employeee ep=session.find(Employeee.class, 2);
-		 System.out.println(ep);
-		 System.out.println(ep.getAddress());
-		
-		
-		 Address ad=session.find(Address.class,2);
-		 System.out.println(ad);
-		 System.out.println(ad.getEmployeee());
+		 Employeee ep=session.find(Employeee.class, 1);
+		System.out.println(ep);
+		System.out.println(ep.getAddresses());
 		 
-		 Employeee ep1=session.find(Employeee.class, 1);
-		 System.out.println(ep1);
-		 System.out.println(ep1.getAddress());
 		
-		  
+		
+		   
 	}
 
 }

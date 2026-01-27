@@ -14,8 +14,7 @@ public class Address {
 	private int H_No;
 	private String city, state;
 	
-	@OneToOne
-	private Employeee employeee;
+	
 	
 	public Address() {
 		super();
@@ -27,13 +26,8 @@ public class Address {
 		this.state = state;
 	}
 
-	public Employeee getEmployeee() {
-		return employeee;
-	}
 	
-    public void setEmployeee( Employeee employeee) {
-    	this.employeee=employeee;
-    }
+    
 	
 	public int getH_No() {
 		return H_No;
