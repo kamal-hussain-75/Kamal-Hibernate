@@ -54,9 +54,9 @@ public class EmployeeRunner {
 		Transaction tx=session.beginTransaction();
 //		
 	     session.persist(emp);
-	     session.persist(add1);
-	     session.persist(add2);
-	     session.persist(add3);
+//	     session.persist(add1);
+//	     session.persist(add2);   //not need persist of address because use (cascade Mapping)
+//	     session.persist(add3);
      	 tx.commit();
 		 
 		 Employeee ep=session.find(Employeee.class, 1);
