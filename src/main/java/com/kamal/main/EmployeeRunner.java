@@ -22,21 +22,24 @@ public class EmployeeRunner {
 	public static void main(String[] args)  {
 		
 		Employeee emp=new Employeee();
-	     emp.setName("Hussain");
+	     emp.setName("Kamal Hussain");
 	     emp.setGender("male");
 	     emp.setSalary(150560);
 	     
 	     Address add1=new Address();
 	     add1.setCity("NOIDA");
 	     add1.setState("UP");
+	     add1.setEmployeee(emp);
 	     
 	     Address add2=new Address();
 	     add2.setCity("GZB");
 	     add2.setState("UP");
+	     add2.setEmployeee(emp);
 	     
 	     Address add3=new Address();
 	     add3.setCity("Lucknow");
 	     add3.setState("UP");
+	     add3.setEmployeee(emp);
 	     
 	   
 	     
@@ -52,16 +55,20 @@ public class EmployeeRunner {
 //		
 		Session session=empConfiguration.getSessionFactory().openSession();
 		Transaction tx=session.beginTransaction();
-//		
-	     session.persist(emp);
-	     session.persist(add1);
-	     session.persist(add2);
-	     session.persist(add3);
-     	 tx.commit();
-		 
-		 Employeee ep=session.find(Employeee.class, 1);
-		System.out.println(ep);
-		System.out.println(ep.getAddresses());
+		
+//	     session.persist(emp);
+//	     session.persist(add1);
+//	     session.persist(add2);
+//	     session.persist(add3);
+//     	 tx.commit();
+		  
+//		 Employeee ep=session.find(Employeee.class, 1);
+//		System.out.println(ep);
+//		System.out.println(ep.getAddresses());
+     	 
+     	 Address address=session.find(Address.class, 2);
+     	 System.out.println(address);
+     	 System.out.println(address.getEmployeee());;
 		 
 		
 		
