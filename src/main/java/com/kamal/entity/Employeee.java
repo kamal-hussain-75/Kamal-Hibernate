@@ -5,6 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+<<<<<<< Updated upstream
+=======
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+>>>>>>> Stashed changes
 
 @Entity(name="empp")
 public class Employeee {
@@ -17,6 +24,13 @@ public class Employeee {
 	private String gender;
 	private int salary;
 	
+<<<<<<< Updated upstream
+=======
+
+	@ManyToMany
+	private List<Address> addresses;
+	
+>>>>>>> Stashed changes
 	public Employeee(){
 		super();
 	}
