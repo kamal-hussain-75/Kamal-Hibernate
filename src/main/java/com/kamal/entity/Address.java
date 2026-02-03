@@ -1,9 +1,13 @@
 package com.kamal.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
@@ -15,9 +19,11 @@ public class Address {
 	private int H_No;
 	private String city, state;
 	
-	@ManyToOne
-	private Employeee employeee;
+	@ManyToMany
+	private List<Employeee> employeee;
 	
+
+
 	public Address() {
 		super();
 	}
@@ -30,15 +36,15 @@ public class Address {
 
 	
 	
-    
-	
-	public Employeee getEmployeee() {
+	public List<Employeee> getEmployeee() {
 		return employeee;
 	}
 
-	public void setEmployeee(Employeee employeee) {
+	public void setEmployeee(List<Employeee> employeee) {
 		this.employeee = employeee;
 	}
+	
+
 
 	public int getH_No() {
 		return H_No;

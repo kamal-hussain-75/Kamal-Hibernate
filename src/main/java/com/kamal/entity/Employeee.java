@@ -1,5 +1,6 @@
 package com.kamal.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -23,8 +25,9 @@ public class Employeee {
 	private int salary;
 	
 
-	@OneToMany
+	@ManyToMany
 	private List<Address> addresses;
+	
 	
 	public Employeee(){
 		super();
@@ -41,6 +44,9 @@ public class Employeee {
 	
 	
 	
+
+ 
+
 	public List<Address> getAddresses() {
 		return addresses;
 	}

@@ -26,49 +26,64 @@ public class EmployeeRunner {
 	     emp.setGender("male");
 	     emp.setSalary(150560);
 	     
+	     Employeee emp1=new Employeee();
+	     emp1.setName("Kamal Hussain");
+	     emp1.setGender("male");
+	     emp1.setSalary(150560);
+	     
 	     Address add1=new Address();
 	     add1.setCity("NOIDA");
 	     add1.setState("UP");
-	     add1.setEmployeee(emp);
+	   
 	     
 	     Address add2=new Address();
 	     add2.setCity("GZB");
 	     add2.setState("UP");
-	     add2.setEmployeee(emp);
-	     
+	    	     
 	     Address add3=new Address();
 	     add3.setCity("Lucknow");
 	     add3.setState("UP");
-	     add3.setEmployeee(emp);
+	   
 	     
 	   
 	     
-	     ArrayList<Address> listOfAddress=new ArrayList<>();
+	     List<Address> listOfAddress=new ArrayList<>();
 	     
 	     listOfAddress.add(add1);
 	     listOfAddress.add(add2);
 	     listOfAddress.add(add3);
 		
+	     List<Employeee> listOfEmployeee=new ArrayList<>();
+	     listOfEmployeee.add(emp);
+	     listOfEmployeee.add(emp1);
 	
 	     emp.setAddresses(listOfAddress);
+	     emp1.setAddresses(listOfAddress);
+	      
+	     
+	     add1.setEmployeee(listOfEmployeee);
+	     add2.setEmployeee(listOfEmployeee);
+	     add3.setEmployeee(listOfEmployeee);
+	 
 		
 //		
 		Session session=empConfiguration.getSessionFactory().openSession();
 		Transaction tx=session.beginTransaction();
-		
-//	     session.persist(emp);
-//	     session.persist(add1);
-//	     session.persist(add2);
-//	     session.persist(add3);
-//     	 tx.commit();
+//		
+	     session.persist(emp);
+	     session.persist(emp1);
+	     session.persist(add1); 
+	     session.persist(add2);
+	     session.persist(add3);
+	     session.persist(listOfEmployeee);
+	     session.persist(listOfAddress);
+     	 tx.commit();
 		  
-//		 Employeee ep=session.find(Employeee.class, 1);
-//		System.out.println(ep);
-//		System.out.println(ep.getAddresses());
+		Employeee ep=session.find(Employeee.class, 1);
+		System.out.println(ep);
+		System.out.println(ep.getAddresses());
      	 
-     	 Address address=session.find(Address.class, 2);
-     	 System.out.println(address);
-     	 System.out.println(address.getEmployeee());;
+     	
 		 
 		
 		
