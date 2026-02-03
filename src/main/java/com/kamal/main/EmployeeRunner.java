@@ -36,23 +36,20 @@ public class EmployeeRunner {
 //		
 		Session session=empConfiguration.getSessionFactory().openSession();
 		Transaction tx=session.beginTransaction();
-//		
-//	     session.persist(emp);
-//	     session.persist(add);
-//		 tx.commit();
+		
+	     session.persist(emp);
+	     session.persist(add);
+		 tx.commit();
 		 
-		 Employeee ep=session.find(Employeee.class, 2);
+		 Employeee ep=session.find(Employeee.class, 1);
 		 System.out.println(ep);
 		 System.out.println(ep.getAddress());
 		
 		
-		 Address ad=session.find(Address.class,2);
+		 Address ad=session.find(Address.class,1);
 		 System.out.println(ad);
 		 System.out.println(ad.getEmployeee());
 		 
-		 Employeee ep1=session.find(Employeee.class, 1);
-		 System.out.println(ep1);
-		 System.out.println(ep1.getAddress());
 		
 		  
 	}
